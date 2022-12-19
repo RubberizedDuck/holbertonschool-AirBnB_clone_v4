@@ -5,15 +5,13 @@ header {
     border-bottom: 1px solid #CCCCCC;
     display: flex;
     align-items: center;
-    position: relative;
 }
 header .logo {
     background: url("../images/logo.png") no-repeat;
-    margin: 50% auto auto 20px;
+    margin: 5px auto auto 20px;
     height: 100%;
     width: 100%;
     display: inline-block;
-    position: absolute;
 }
 header #api_status {
     margin: auto 30px auto auto;
