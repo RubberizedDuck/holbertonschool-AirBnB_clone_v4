@@ -10,9 +10,10 @@ header .logo {
     background: url("../images/logo.png") no-repeat;
     margin: auto auto auto 20px;
     height: 100%;
+    width: 100%;
     display: inline-block;
 }
-#api_status {
+header #api_status {
     margin: auto 30px auto auto;
     display: inline-block;
     height: 40px;
@@ -20,6 +21,6 @@ header .logo {
     border-radius: 50%;
     background-color: #cccccc;
 }
-#api_status.available{
+header #api_status.available{
     background-color: #ff545f;
 }
