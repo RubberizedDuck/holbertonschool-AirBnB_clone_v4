@@ -12,6 +12,7 @@ header .logo {
     height: 100%;
     width: 100%;
     display: inline-block;
+    position: absolute;
 }
 header #api_status {
     margin: auto 30px auto auto;
