@@ -10,7 +10,7 @@ header .logo {
     background: url("../images/logo.png") no-repeat;
     margin: 5px auto auto 20px;
     height: 100%;
-    width: 100%;
+    width: 80%;
     display: inline-block;
 }
 header #api_status {
