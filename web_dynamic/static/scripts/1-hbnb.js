@@ -1,6 +1,6 @@
 $(window).on('load', function () {
   $('input:checkbox').css('margin-right', '10px');
-  $("input[type='checkbox']").click(function () {
+  $('input').click(function () {
     const checkList = {};
     if ($(this).is(':checked')) {
       checkList[$(this).attr('data-id')] = $(this).attr('data-name');
