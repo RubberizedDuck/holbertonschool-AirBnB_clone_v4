@@ -1,4 +1,5 @@
 $(window).on('load', function () {
+  $('input:checkbox').css('margin-right', '10px');
   $("input[type='checkbox']").change(function () {
     const checkList = {};
     if ($(this).is(':checked')) {
