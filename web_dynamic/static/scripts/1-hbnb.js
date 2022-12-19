@@ -4,7 +4,7 @@ $(window).on('load', function () {
     const checkList = {};
     if ($(this).is(':checked')) {
       checkList[$(this).attr('data-id')] = $(this).attr('data-name');
-    } else {
+    } else if (!$(this).is(':checked')) {
       delete checkList[$(this).attr('data-id')];
     }
     const checked = [];
