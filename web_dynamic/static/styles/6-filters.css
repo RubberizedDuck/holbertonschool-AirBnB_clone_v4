@@ -51,9 +51,6 @@ button:hover {
     width: 100px;
 }
 .amenities h4{
-    width: 200px;
-    border: 1px solid;
-    padding: 2px 5px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
