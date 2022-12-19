@@ -57,9 +57,7 @@ button:hover {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: flex;
-    justify-content: space-around;
-    direction: ltr;
+    display: inline-block;
 }
 .popover {
     visibility: hidden;
