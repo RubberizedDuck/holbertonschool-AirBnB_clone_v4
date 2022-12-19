@@ -47,8 +47,8 @@ button:hover {
     border-right: 1px solid #DDDDDD;
 }
 .amenities {
-    height: 100%;
-    width: 25%;
+    height: 400px;
+    width: 100px;
 }
 .amenities h4{
     width: 200px;
