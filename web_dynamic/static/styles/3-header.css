@@ -12,7 +12,7 @@ header .logo {
     height: 100%;
     display: inline-block;
 }
-header #api_status {
+#api_status {
     margin: auto 30px auto auto;
     display: inline-block;
     height: 40px;
@@ -20,6 +20,6 @@ header #api_status {
     border-radius: 50%;
     background-color: #cccccc;
 }
-header #api_status.available{
+#api_status.available{
     background-color: #ff545f;
 }
