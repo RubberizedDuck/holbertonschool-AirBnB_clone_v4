@@ -13,8 +13,8 @@ $(window).on('load', function () {
     }
     $('.amenities h4').text(isChecked.join(', '));
   });
-  $.get('http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/status/', function (body, status) {
-    if (status === 'OK') {
+  $.get('http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/status/', function (body) {
+    if (body.status === 'OK') {
       $('#api_status').addClass('available');
     } else {
       $('api_status').removeClass('available');
