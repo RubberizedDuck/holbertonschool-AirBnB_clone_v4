@@ -9,7 +9,7 @@ $(window).on('load', function () {
     }
     const isChecked = [];
     for (const check in checkList) {
-      isChecked.append(checkList[check]);
+      isChecked.push(checkList[check]);
     }
     $('.amenities h4').text(isChecked.join(', '));
   });
