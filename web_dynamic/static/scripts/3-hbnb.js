@@ -26,7 +26,7 @@ $(window).on('load', function () {
     url: 'http://a7d84cf2a0b4.cd567695.hbtn-cod.io:5001/api/v1/places_search/',
     data: JSON.stringify({}),
     dataType: 'json',
-    contentType: 'application/json'
+    contentType: 'application/json',
     success: function (data) {
       data.forEach((place) => {
         let html = '';
@@ -56,8 +56,8 @@ $(window).on('load', function () {
         html += '          	</div>';
         html += '          	<div class="description">';
         html += '	    	' + place.description;
-        html += '          	</div>'
-        html += '		</article>'
+        html += '          	</div>';
+        html += '		</article>';
         $('section.places').append($(html));
       });
     }
