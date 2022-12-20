@@ -13,7 +13,7 @@ $(window).on('load', function () {
     }
     $('.amenities h4').text(isChecked.join(', '));
   });
-  $.get('http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/status/', function (body) {
+  $.get('a7d84cf2a0b4.cd567695.hbtn-cod.io:5001/api/v1/status/', function (body) {
     if (body.status === 'OK') {
       $('#api_status').addClass('available');
     } else {
@@ -28,7 +28,7 @@ $(window).on('load', function () {
     dataType: 'json',
     contentType: 'application/json'
     success: function (data) {
-      data.forEach((place) => {
+      data.forEach((places) => {
         let html = '';
         html += '		<article>';
         html += '	  		<div class="title_box">';
