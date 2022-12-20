@@ -7,10 +7,7 @@ $(window).on('load', function () {
     } else if (!$(this).is(':checked')) {
       delete checkList[$(this).attr('data-id')];
     }
-    const isChecked = [];
-    for (const check in checkList) {
-      isChecked.push(checkList[check]);
-    }
+    const isChecked = Object.values(checkList);
     $('.amenities h4').text(isChecked.join(', '));
   });
   $.get('http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/status/', function (body) {
@@ -26,7 +23,7 @@ $(window).on('load', function () {
       type: 'POST',
       url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_search/',
       data: JSON.stringify({
-        amenities: isChecked
+        amenities: Object.values(checkList)
       }),
       dataType: 'json',
       contentType: 'application/json',
