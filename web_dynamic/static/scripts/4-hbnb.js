@@ -28,6 +28,7 @@ $(window).on('load', function () {
       dataType: 'json',
       contentType: 'application/json',
       success: function (data) {
+        $('.places').empty();
         data.forEach((place) => {
           let html = '';
           html += '		<article>';
