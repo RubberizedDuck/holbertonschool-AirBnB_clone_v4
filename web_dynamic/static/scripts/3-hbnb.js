@@ -28,7 +28,7 @@ $(window).on('load', function () {
     dataType: 'json',
     contentType: 'application/json'
     success: function (data) {
-      data.forEach((places) => {
+      data.forEach((place) => {
         let html = '';
         html += '		<article>';
         html += '	  		<div class="title_box">';
