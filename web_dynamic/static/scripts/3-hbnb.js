@@ -13,7 +13,7 @@ $(window).on('load', function () {
     }
     $('.amenities h4').text(isChecked.join(', '));
   });
-  $.get('http://a7d84cf2a0b4.cd567695.hbtn-cod.io:5001/api/v1/status/', function (body) {
+  $.get('http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/status/', function (body) {
     if (body.status === 'OK') {
       $('#api_status').addClass('available');
     } else {
@@ -23,7 +23,7 @@ $(window).on('load', function () {
 
   $.ajax({
     type: 'POST',
-    url: 'http://a7d84cf2a0b4.cd567695.hbtn-cod.io:5001/api/v1/places_search/',
+    url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_search/',
     data: JSON.stringify({}),
     dataType: 'json',
     contentType: 'application/json',
