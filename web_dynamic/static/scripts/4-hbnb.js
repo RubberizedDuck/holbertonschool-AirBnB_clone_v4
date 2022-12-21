@@ -1,6 +1,7 @@
 $(document).ready(init);
 
 function init () {
+  checkedList();
   const useThis = checkedList();
   apiStatus();
   searchPlaces(useThis);
