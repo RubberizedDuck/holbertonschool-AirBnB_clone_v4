@@ -1,15 +1,27 @@
-$(window).on('load', function () {
-  const checkList = {};
-  $('input:checkbox').css('margin-right', '10px');
+$(document).ready(init);
+
+const checkList = {};
+
+function init () {
   $('input').click(function () {
-    if ($(this).is(':checked')) {
-      checkList[$(this).attr('data-id')] = $(this).attr('data-name');
-    } else if (!$(this).is(':checked')) {
-      delete checkList[$(this).attr('data-id')];
-    }
-    const isChecked = Object.values(checkList);
-    $('.amenities h4').text(isChecked.join(', '));
+    const checkList = checkedList();
+    $('.amenities h4').text(checkList.join(', '));
   });
+  apiStatus();
+  searchPlaces();
+}
+
+function checkedList () {
+  const checkList = {};
+  if ($(this).is(':checked')) {
+    checkList[$(this).attr('data-id')] = $(this).attr('data-name');
+  } else if (!$(this).is(':checked')) {
+    delete checkList[$(this).attr('data-id')];
+  }
+  return checkList;
+}
+
+function apiStatus () {
   $.get('http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/status/', function (body) {
     if (body.status === 'OK') {
       $('#api_status').addClass('available');
@@ -17,7 +29,9 @@ $(window).on('load', function () {
       $('#api_status').removeClass('available');
     }
   });
+}
 
+function searchPlaces () {
   $('button').click(function () {
     $.ajax({
       type: 'POST',
@@ -64,4 +78,4 @@ $(window).on('load', function () {
       }
     });
   });
-});
+}
