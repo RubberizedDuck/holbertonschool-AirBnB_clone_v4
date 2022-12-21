@@ -43,7 +43,7 @@ function searchPlaces () {
       dataType: 'json',
       contentType: 'application/json',
       success: function (data) {
-        $('.places').empty();
+        $('section.places').empty();
         data.forEach((place) => {
           let html = '';
           html += '		<article>';
