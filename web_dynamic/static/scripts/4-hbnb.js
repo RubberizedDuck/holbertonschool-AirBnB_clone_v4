@@ -1,5 +1,6 @@
 $(document).ready(init);
 
+const finalUse = {};
 const amenityObj = {};
 let checkList = {};
 
@@ -20,6 +21,7 @@ function checkedList () {
   }
   const amenities = Object.values(checkList);
   $('.amenities h4').text(amenities.join(', '));
+  return (checkList);
 }
 
 function apiStatus () {
@@ -34,11 +36,12 @@ function apiStatus () {
 
 function searchPlaces () {
   $('button').click(function () {
+    finalUse = checkedList();
     $.ajax({
       type: 'POST',
       url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_search/',
       data: JSON.stringify({
-        amenities: Object.values(amenityObj)
+        amenities: Object.values(finalUse)
       }),
       dataType: 'json',
       contentType: 'application/json',
