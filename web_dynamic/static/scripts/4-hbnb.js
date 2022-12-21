@@ -1,25 +1,26 @@
 $(document).ready(init);
 
-const amenityObj = {};
-let checkList = {};
+const checkList = {};
+const amenityList = [];
+const dataObj = {};
 
 function init () {
-  $('input').click(function () {
-    checkList = amenityObj;
-    checkedList.call(this);
-  });
+  checkedList();
   apiStatus();
   searchPlaces();
 }
 
 function checkedList () {
-  if ($(this).is(':checked')) {
-    checkList[$(this).attr('data-id')] = $(this).attr('data-name');
-  } else if (!$(this).is(':checked')) {
-    delete checkList[$(this).attr('data-id')];
-  }
-  amenityChecks = Object.values(checkList);
-  $('.amenities h4').text(amenityChecks.join(', '));
+  $('input').click(function () {
+    if ($(this).is(':checked')) {
+      checkList[$(this).attr('data-id')] = $(this).attr('data-name');
+    } else if (!$(this).is(':checked')) {
+      delete checkList[$(this).attr('data-id')];
+    }
+    amenityChecks = Object.values(checkList);
+    $('.amenities h4').text(amenityChecks.join(', '));
+    return checkList;
+  });
 }
 
 function apiStatus () {
@@ -34,11 +35,12 @@ function apiStatus () {
 
 function searchPlaces () {
   $('button').click(function () {
+    amenityList = checkedList();
     $.ajax({
       type: 'POST',
       url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_search/',
       data: JSON.stringify({
-        amenities: Object.values(amenityObj)
+        amenities: Object.values(amenityList)
       }),
       dataType: 'json',
       contentType: 'application/json',
