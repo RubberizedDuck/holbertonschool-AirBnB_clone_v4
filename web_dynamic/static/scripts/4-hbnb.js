@@ -40,9 +40,9 @@ function searchPlaces () {
     $.ajax({
       type: 'POST',
       url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_search/',
-      data: JSON.stringify({
-        amenities: Object.values(finalUse)
-      }),
+      data: JSON.stringify(
+        Object.values(finalUse)
+      ),
       dataType: 'json',
       contentType: 'application/json',
       success: function (data) {
