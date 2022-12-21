@@ -1,13 +1,13 @@
 $(document).ready(init);
 
 const amenityObj = {};
-let checkList = {}
+let checkList = {};
 
 function init () {
   $('input').click(function () {
     checkList = amenityObj;
     checkedList.call(this);
-  }
+  });
   apiStatus();
   searchPlaces();
 }
