@@ -12,13 +12,14 @@ function init () {
   searchPlaces();
 }
 
-function checkedList (nList) {
+function checkedList () {
   if ($(this).is(':checked')) {
     checkList[$(this).attr('data-id')] = $(this).attr('data-name');
   } else if (!$(this).is(':checked')) {
     delete checkList[$(this).attr('data-id')];
   }
-  $('.amenities h4').text(checkList.join(', '));
+  amenityChecks = Object.values(checkList);
+  $('.amenities h4').text(amenityChecks.join(', '));
 }
 
 function apiStatus () {
