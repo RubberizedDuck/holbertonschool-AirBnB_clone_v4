@@ -1,7 +1,6 @@
 $(document).ready(init);
 
 const checkList = {};
-const amenityChecks = [];
 const dataObj = {};
 
 function init () {
