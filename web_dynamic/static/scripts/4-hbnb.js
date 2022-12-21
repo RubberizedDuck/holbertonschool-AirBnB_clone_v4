@@ -12,7 +12,6 @@ function init () {
 }
 
 function checkedList () {
-  const checkList = {};
   if ($(this).is(':checked')) {
     checkList[$(this).attr('data-id')] = $(this).attr('data-name');
   } else if (!$(this).is(':checked')) {
