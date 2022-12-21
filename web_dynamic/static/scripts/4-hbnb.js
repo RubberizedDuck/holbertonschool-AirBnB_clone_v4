@@ -21,7 +21,7 @@ function checkedList () {
   }
   const amenities = Object.values(checkList);
   $('.amenities h4').text(amenities.join(', '));
-  return (checkList);
+  return (amenities);
 }
 
 function apiStatus () {
