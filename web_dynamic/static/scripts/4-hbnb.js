@@ -7,7 +7,7 @@ function init () {
   $('input').click(function () {
     obj = amenityObj;
     checkedList.call(this);
-  })
+  });
   apiStatus();
   searchPlaces();
 }
