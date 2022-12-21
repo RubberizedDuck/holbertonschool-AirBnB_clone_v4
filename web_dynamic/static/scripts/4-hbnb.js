@@ -1,5 +1,7 @@
 $(document).ready(init);
 
+const checkList = {};
+
 function init () {
   checkedList();
   apiStatus();
@@ -8,7 +10,6 @@ function init () {
 
 function checkedList () {
   $('input').click(function () {
-    const checkList = {};
     if ($(this).is(':checked')) {
       checkList[$(this).attr('data-id')] = $(this).attr('data-name');
     } else if (!$(this).is(':checked')) {
