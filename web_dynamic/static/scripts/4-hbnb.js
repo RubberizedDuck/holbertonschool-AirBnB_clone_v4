@@ -1,9 +1,7 @@
 $(document).ready(init);
 
 function init () {
-  const checkList = checkedList();
-  const amenityChecks = Object.values(checkList);
-  $('.amenities h4').text(amenityChecks.join(', '));
+  const useThis = checkedList();
   apiStatus();
   searchPlaces(amenityChecks);
 }
@@ -16,6 +14,8 @@ function checkedList () {
     } else if (!$(this).is(':checked')) {
       delete checkList[$(this).attr('data-id')];
     }
+    const amenityChecks = Object.values(checkList);
+    $('.amenities h4').text(amenityChecks.join(', '));
     return checkList;
   });
 }
