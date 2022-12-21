@@ -38,7 +38,7 @@ function searchPlaces () {
       type: 'POST',
       url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_search/',
       data: JSON.stringify({
-        amenities: Object.values(amenityObj)
+        Object.values(amenityObj)
       }),
       dataType: 'json',
       contentType: 'application/json',
