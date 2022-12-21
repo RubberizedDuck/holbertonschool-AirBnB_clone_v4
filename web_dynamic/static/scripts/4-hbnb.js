@@ -2,9 +2,8 @@ $(document).ready(init);
 
 function init () {
   checkedList();
-  const useThis = checkedList();
   apiStatus();
-  searchPlaces(useThis);
+  searchPlaces(checkedList());
 }
 
 function checkedList () {
@@ -15,9 +14,9 @@ function checkedList () {
     } else if (!$(this).is(':checked')) {
       delete checkList[$(this).attr('data-id')];
     }
-    const amenityChecks = Object.values(checkList);
-    $('.amenities h4').text(amenityChecks.join(', '));
-    return checkList;
+    const amenities = Object.values(checkList);
+    $('.amenities h4').text(amenities.join(', '));
+    return amenities;
   });
 }
 
@@ -31,13 +30,13 @@ function apiStatus () {
   });
 }
 
-function searchPlaces (amenityChecks) {
+function searchPlaces (amenities) {
   $('button').click(function () {
     $.ajax({
       type: 'POST',
       url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_search/',
       data: JSON.stringify({
-        amenities: amenityChecks
+        amenities: amenities
       }),
       dataType: 'json',
       contentType: 'application/json',
