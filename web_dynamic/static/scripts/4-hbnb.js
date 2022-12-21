@@ -1,23 +1,24 @@
 $(document).ready(init);
 
-const checkList = {};
+const amenityObj = {};
+let checkList = {};
 
 function init () {
   $('input').click(function () {
-    const checkList = checkedList();
-    $('.amenities h4').text(checkList.join(', '));
+    checkList = amenityObj;
+    checkedList.call(this);
   });
   apiStatus();
   searchPlaces();
 }
 
-function checkedList () {
+function checkedList (nList) {
   if ($(this).is(':checked')) {
     checkList[$(this).attr('data-id')] = $(this).attr('data-name');
   } else if (!$(this).is(':checked')) {
     delete checkList[$(this).attr('data-id')];
   }
-  return checkList;
+  $('.amenities h4').text(checkList.join(', '));
 }
 
 function apiStatus () {
@@ -36,7 +37,7 @@ function searchPlaces () {
       type: 'POST',
       url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_search/',
       data: JSON.stringify({
-        amenities: Object.values(checkList)
+        amenities: Object.values(amenityObj)
       }),
       dataType: 'json',
       contentType: 'application/json',
