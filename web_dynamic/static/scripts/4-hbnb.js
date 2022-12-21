@@ -5,7 +5,7 @@ const checkList = {};
 function init () {
   checkedList();
   apiStatus();
-  searchPlaces(checkedList());
+  searchPlaces();
 }
 
 function checkedList () {
@@ -33,11 +33,12 @@ function apiStatus () {
 
 function searchPlaces (amenities) {
   $('button').click(function () {
+    const useAmenities = checkedList();
     $.ajax({
       type: 'POST',
       url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_search/',
       data: JSON.stringify({
-        amenities: amenities
+        amenities: useAmenities
       }),
       dataType: 'json',
       contentType: 'application/json',
