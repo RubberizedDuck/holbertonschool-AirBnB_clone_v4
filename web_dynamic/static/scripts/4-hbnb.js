@@ -1,8 +1,8 @@
 $(document).ready(init);
 
 function init () {
-  checkedList();
-  const amenityChecks = Object.values(CheckedList());
+  const checkList = checkedList();
+  const amenityChecks = Object.values(checkList);
   $('.amenities h4').text(amenityChecks.join(', '));
   apiStatus();
   searchPlaces(amenityChecks);
