@@ -3,7 +3,7 @@ $(document).ready(init);
 function init () {
   const useThis = checkedList();
   apiStatus();
-  searchPlaces(amenityChecks);
+  searchPlaces(useThis);
 }
 
 function checkedList () {
