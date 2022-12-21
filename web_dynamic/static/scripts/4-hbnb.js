@@ -34,13 +34,10 @@ function apiStatus () {
 
 function searchPlaces () {
   $('button').click(function () {
-    amenityList = checkedList();
-    dataobj = {};
-    dataobj.amenities = amenityList;
     $.ajax({
       type: 'POST',
       url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_search/',
-      data: JSON.stringify(dataobj),
+      data: JSON.stringify(checkedList()),
       dataType: 'json',
       contentType: 'application/json',
       success: function (data) {
