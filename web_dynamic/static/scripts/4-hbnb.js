@@ -1,7 +1,7 @@
 $(document).ready(init);
 
 const checkList = {};
-const amenityList = [];
+const amenityChecks = [];
 const dataObj = {};
 
 function init () {
@@ -19,7 +19,7 @@ function checkedList () {
     }
     amenityChecks = Object.values(checkList);
     $('.amenities h4').text(amenityChecks.join(', '));
-    return checkList;
+    return amenityChecks;
   });
 }
 
