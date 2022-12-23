@@ -23,7 +23,7 @@ function checkedList () {
 }
 
 function apiStatus () {
-  $.get('http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/status/', function (body) {
+  $.get('http://0.0.0.0:5001/api/v1/status/', function (body) {
     if (body.status === 'OK') {
       $('#api_status').addClass('available');
     } else {
@@ -36,7 +36,7 @@ function searchPlaces () {
   $('button').click(function () {
     $.ajax({
       type: 'POST',
-      url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_search/',
+      url: 'http://0.0.0.0:5001/api/v1/places_search/',
       data: JSON.stringify({
         amenities: Object.values(amenityObj)
       }),
