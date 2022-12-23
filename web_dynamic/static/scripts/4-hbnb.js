@@ -43,49 +43,30 @@ function searchPlaces (carry) {
     }),
     dataType: 'json',
     contentType: 'application/json',
-    success: function (data) {
-      const renderTitleBox = (place) => {
-        let html = '';
-        html += '<div class="title_box">';
-        html += '  <h2>' + place.name + '</h2>';
-        html += '  <div class="price_by_night">' + place.price_by_night + '</div>';
-        html += '</div>';
-        return html;
-      };
-      const renderInformation = (place) => {
-        let html = '';
-        html += '<div class="information">';
-        html += '  <div class="max_guest">' + place.max_guest + pluralize(' Guest', place.max_guest);
-        html += '  </div>';
-        html += '  <div class="number_rooms">' + place.number_rooms + pluralize(' Bedroom', place.number_rooms);
-        html += '  </div>';
-        html += '  <div class="number_bathrooms">' + place.number_bathrooms + pluralize(' Bathroom', place.number_bathrooms);
-        html += '  </div>';
-        html += '</div>';
-        return html;
-      };
-      const renderUser = () => {
-        let html = '';
-        html += '<div class="user">';
-        html += '</div>';
-        return html;
-      };
-      const renderDescription = (place) => {
-        let html = '';
-        html += '<div class="description">' + place.description;
-        html += '</div>';
-        return html;
-      };
-      data.forEach((place) => {
-        let html = '';
-        html += '<article>';
-        html += renderTitleBox(place);
-        html += renderInformation(place);
-        html += renderUser();
-        html += renderDescription(place);
-        html += '</article>';
-        $('section.places').append($(html));
-      });
+    success: function (response) {
+      $('SECTION.places').empty();
+      for (const r of response) {
+        const article = ['<article>',
+          '<div class="title_box">',
+          `<h2>${r.name}</h2>`,
+          `<div class="price_by_night">$${r.price_by_night}</div>`,
+          '</div>',
+          '<div class="information">',
+          `<div class="max_guest">${r.max_guest} Guest(s)</div>`,
+          `<div class="number_rooms">${r.number_rooms} Bedroom(s)</div>`,
+          `<div class="number_bathrooms">${r.number_bathrooms} Bathroom(s)</div>`,
+          '</div>',
+          '<div class="description">',
+          `${r.description}`,
+          '</div>',
+          '<div class="reviews"><h2>',
+          `<span id="${r.id}n" class="treview">Reviews</span>`,
+          `<span id="${r.id}" onclick="showReviews(this)">Show</span></h2>`,
+          `<ul id="${r.id}r"></ul>`,
+          '</div>',
+          '</article>'];
+        $('SECTION.places').append(article.join(''));
+      }
     }
   });
 }
