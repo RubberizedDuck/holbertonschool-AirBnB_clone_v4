@@ -1,19 +1,19 @@
 $(document).ready(init);
 
-const amenityObj = {};
-let checkList = {};
+let carry = {};
 
 function init () {
   $('input').click(function () {
-    checkList = amenityObj;
-    checkedList.call(this);
+    carry = checkedList();
   });
   apiStatus();
-  origSearch();
-  searchPlaces();
+  $('button').click(function () {
+    searchPlaces(carry);
+  });
 }
 
 function checkedList () {
+  const checkList = {};
   if ($(this).is(':checked')) {
     checkList[$(this).attr('data-id')] = $(this).attr('data-name');
   } else if (!$(this).is(':checked')) {
@@ -21,6 +21,7 @@ function checkedList () {
   }
   const amenities = Object.values(checkList);
   $('.amenities h4').text(amenities.join(', '));
+  return checkList;
 }
 
 function apiStatus () {
@@ -33,59 +34,13 @@ function apiStatus () {
   });
 }
 
-function searchPlaces () {
-  $('button').click(function () {
-    $.ajax({
-      type: 'POST',
-      url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_search/',
-      data: JSON.stringify({
-        amenities: Object.values(amenityObj)
-      }),
-      dataType: 'json',
-      contentType: 'application/json',
-      success: function (data) {
-        $('.places').empty();
-        data.forEach((place) => {
-          let html = '';
-          html += '		<article>';
-          html += '	  		<div class="title_box">';
-          html += '	    		<h2>' + place.name + '</h2>';
-          html += '	    		<div class="price_by_night">' + place.price_by_night + '</div>';
-          html += '	  		</div>';
-          html += '	  		<div class="information">';
-          html += '	    		<div class="max_guest">' + place.max_guest + ' Guest';
-          if (place.max_guest !== 1) {
-            html += 's';
-          }
-          html += '</div>';
-          html += '            	<div class="number_rooms">' + place.number_rooms + ' Bedroom';
-          if (place.number_rooms !== 1) {
-            html += 's';
-          }
-          html += '</div>';
-          html += '            	<div class="number_bathrooms">' + place.number_bathrooms + ' Bathroom';
-          if (place.number_bathrooms !== 1) {
-            html += 's';
-          }
-          html += '</div>';
-          html += '	  		</div>';
-          html += '	  		<div class="user">';
-          html += '          	</div>';
-          html += '          	<div class="description">';
-          html += '	    	' + place.description;
-          html += '          	</div>';
-          html += '		</article>';
-          $('section.places').append($(html));
-        });
-      }
-    });
-  });
-}
-function origSearch () {
+function searchPlaces (carry) {
   $.ajax({
     type: 'POST',
     url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_search/',
-    data: JSON.stringify({}),
+    data: JSON.stringify({
+      amenities: Object.values(carry)
+    }),
     dataType: 'json',
     contentType: 'application/json',
     success: function (data) {
