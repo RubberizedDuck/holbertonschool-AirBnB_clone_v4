@@ -15,7 +15,6 @@ function init () {
 }
 
 function checkedList () {
-  const checkList = {};
   if ($(this).is(':checked')) {
     checkList[$(this).attr('data-id')] = $(this).attr('data-name');
   } else if (!$(this).is(':checked')) {
@@ -23,7 +22,6 @@ function checkedList () {
   }
   const amenities = Object.values(checkList);
   $('.amenities h4').text(amenities.join(', '));
-  return checkList;
 }
 
 function apiStatus () {
@@ -36,9 +34,14 @@ function apiStatus () {
   });
 }
 
+const pluralize = (word, numberOfItems) => {
+  if (numberOfItems > 1) {
+    word += 's';
+  }
+  return word;
+
 function searchPlaces () {
   $.ajax({
-    amenity = checkedList();
     type: 'POST',
     url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_names/',
     data: JSON.stringify({
