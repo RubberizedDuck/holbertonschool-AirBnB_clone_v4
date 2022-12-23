@@ -37,7 +37,7 @@ function apiStatus () {
 function searchPlaces (carry) {
   $.ajax({
     type: 'POST',
-    url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places/',
+    url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_names/',
     data: JSON.stringify({
       amenities: Object.values(carry)
     }),
