@@ -3,7 +3,6 @@ $(document).ready(init);
 let carry = {};
 
 function init () {
-  checkedList();
   apiStatus();
   $('button').click(function () {
     searchPlaces();
