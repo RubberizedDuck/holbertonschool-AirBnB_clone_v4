@@ -4,11 +4,11 @@ let carry = {};
 
 function init () {
   $('input').click(function () {
-    carry = checkedList();
+    checkedList();
   });
   apiStatus();
   $('button').click(function () {
-    searchPlaces(carry);
+    searchPlaces();
   });
 }
 
@@ -36,10 +36,11 @@ function apiStatus () {
 
 function searchPlaces (carry) {
   $.ajax({
+    amenity = checkedList();
     type: 'POST',
     url: 'http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/places_names/',
     data: JSON.stringify({
-      amenities: Object.values(carry)
+      amenities: Object.values(amenity)
     }),
     dataType: 'json',
     contentType: 'application/json',
