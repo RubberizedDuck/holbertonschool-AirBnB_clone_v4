@@ -3,9 +3,7 @@ $(document).ready(init);
 let carry = {};
 
 function init () {
-  $('input').click(function () {
-    checkedList();
-  });
+  checkedList();
   apiStatus();
   $('button').click(function () {
     searchPlaces();
@@ -14,7 +12,8 @@ function init () {
 
 function checkedList () {
   const checkList = {};
-  if ($(this).is(':checked')) {
+  $('input').click(function () {
+    if ($(this).is(':checked')) {
     checkList[$(this).attr('data-id')] = $(this).attr('data-name');
   } else if (!$(this).is(':checked')) {
     delete checkList[$(this).attr('data-id')];
@@ -22,7 +21,9 @@ function checkedList () {
   const amenities = Object.values(checkList);
   $('.amenities h4').text(amenities.join(', '));
   return checkList;
+  });
 }
+
 
 function apiStatus () {
   $.get('http://cc5333933a49.6ed948a4.hbtn-cod.io:5001/api/v1/status/', function (body) {
@@ -34,7 +35,7 @@ function apiStatus () {
   });
 }
 
-function searchPlaces (carry) {
+function searchPlaces () {
   $.ajax({
     amenity = checkedList();
     type: 'POST',
